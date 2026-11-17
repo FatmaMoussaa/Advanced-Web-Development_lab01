@@ -1,4 +1,4 @@
-<web-app>
+<web-app metadata.complete="false" > // ou ="true" le false dit suis les anno @webfilter et @webservlet etc et true le web xml
 <servlet >
 <servlet-name>FormServlet</servlet-name>
 <servlet-class>FormServlet</servlet-class>
@@ -44,4 +44,20 @@
 <servlet-name>ListItems</servlet-name>
 <url-pattern>/ListItems</url-pattern>
 </servlet-mapping>
+
+<filter>
+<filter-name>LoggingFilter</filter-name>
+<filter-class>LoggingFilter</filter-class>
+<init-param>
+<param-name>log</param-name>
+<param-value>log</param-value>
+</init-param>
+</filter>
+
+<filter-mapping>
+<filter-name>LoggingFilter</filter-name>
+<url-pattern>/*</url-pattern>
+</filter-mapping>
+
+
 </web-app>

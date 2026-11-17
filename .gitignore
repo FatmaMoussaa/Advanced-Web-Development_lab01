@@ -1,0 +1,12 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# Java compilé
+*.class
+
+# Divers
+*.log
+.DS_Store
+Thumbs.db
