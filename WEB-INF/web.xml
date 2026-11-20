@@ -1,63 +1,100 @@
-<web-app metadata.complete="false" > // ou ="true" le false dit suis les anno @webfilter et @webservlet etc et true le web xml
-<servlet >
-<servlet-name>FormServlet</servlet-name>
-<servlet-class>FormServlet</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>FormServlet</servlet-name>
-<url-pattern>/FormServlet</url-pattern>
-<url-pattern>/Form_Servlet</url-pattern>
-</servlet-mapping>
+<web-app metadata-complete="false">
+    <servlet>
+        <servlet-name>FormServlet</servlet-name>
+        <servlet-class>FormServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FormServlet</servlet-name>
+        <url-pattern>/FormServlet</url-pattern>
+        <url-pattern>/Form_Servlet</url-pattern>
+    </servlet-mapping>
 
-<servlet>
-<servlet-name>ReadCookie</servlet-name>
-<servlet-class>ReadCookie</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>ReadCookie</servlet-name>
-<url-pattern>/ReadCookie</url-pattern>
-</servlet-mapping>
+    <servlet>
+        <servlet-name>ReadCookie</servlet-name>
+        <servlet-class>ReadCookie</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReadCookie</servlet-name>
+        <url-pattern>/ReadCookie</url-pattern>
+    </servlet-mapping>
 
-<servlet>
-<servlet-name>ShowSession</servlet-name>
-<servlet-class>ShowSession</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>ShowSession</servlet-name>
-<url-pattern>/ShowSession</url-pattern>
-</servlet-mapping>
+    <servlet>
+        <servlet-name>ShowSession</servlet-name>
+        <servlet-class>ShowSession</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowSession</servlet-name>
+        <url-pattern>/ShowSession</url-pattern>
+    </servlet-mapping>
 
-<servlet>
-<servlet-name>VisitCounter</servlet-name>
-<servlet-class>VisitCounter</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>VisitCounter</servlet-name>
-<url-pattern>/VisitCounter</url-pattern>
-</servlet-mapping>
+    <servlet>
+        <servlet-name>VisitCounter</servlet-name>
+        <servlet-class>VisitCounter</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VisitCounter</servlet-name>
+        <url-pattern>/VisitCounter</url-pattern>
+    </servlet-mapping>
 
-<servlet>
-<servlet-name>ListItems</servlet-name>
-<servlet-class>ListItems</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>ListItems</servlet-name>
-<url-pattern>/ListItems</url-pattern>
-</servlet-mapping>
+    <servlet>
+        <servlet-name>ListItems</servlet-name>
+        <servlet-class>ListItems</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListItems</servlet-name>
+        <url-pattern>/ListItems</url-pattern>
+    </servlet-mapping>
 
-<filter>
-<filter-name>LoggingFilter</filter-name>
-<filter-class>LoggingFilter</filter-class>
-<init-param>
-<param-name>log</param-name>
-<param-value>log</param-value>
-</init-param>
-</filter>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
 
-<filter-mapping>
-<filter-name>LoggingFilter</filter-name>
-<url-pattern>/*</url-pattern>
-</filter-mapping>
+    <filter>
+        <filter-name>LoggingFilter</filter-name>
+        <filter-class>LoggingFilter</filter-class>
+        <init-param>
+            <param-name>logPrefix</param-name>
+            <param-value>[LOG] </param-value>
+        </init-param>
+    </filter>
 
+    <filter>
+        <filter-name>SecurityFilter</filter-name>
+        <filter-class>SecurityFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>LoggingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>SecurityFilter</filter-name>
+        <url-pattern>/ListItems</url-pattern>
+    </filter-mapping>
+
+    <listener>
+        <listener-class>ApplicationListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>ActiveSessionListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>RequestListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>SessionAttributeListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>ApplicationAttributeListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>RequestAttributeListener</listener-class>
+    </listener>
 
 </web-app>
