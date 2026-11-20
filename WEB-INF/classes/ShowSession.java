@@ -28,6 +28,8 @@ public class ShowSession extends HttpServlet {
         }
         session.setAttribute("nbVisites", nbVisites);
         out.println("<p>Number of visits: " + nbVisites + "</p>");
+        Object actives = getServletContext().getAttribute("activeSessions");
+        out.println("<p>Active sessions: " + actives + "</p>");
         String nom = (String) session.getAttribute("nom");
         String dateStr = (String) session.getAttribute("date");
 
@@ -64,4 +66,4 @@ public class ShowSession extends HttpServlet {
         out.println("<a href='ShowSession'>Visit again</a>");
         out.println("</body></html>");
     }
-}
+}
